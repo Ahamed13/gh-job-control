@@ -75,3 +75,13 @@ jobs:
         run: ls
       - name: Deploy
         run: echo "Deploying..."
+  run:
+    runs-on: unbuntu-latest
+    needs: [lint, deploy]
+    if: failure()
+    steps:
+      - name: output information
+        run: |
+          echo "Something went wrong"
+          echo "${{toJson( github )}}"
+      
