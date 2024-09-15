@@ -75,7 +75,7 @@ jobs:
         run: ls
       - name: Deploy
         run: echo "Deploying..."
-  run:
+  report:
     runs-on: unbuntu-latest
     needs: [lint, deploy]
     if: failure()
